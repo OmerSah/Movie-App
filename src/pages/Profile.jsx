@@ -11,10 +11,11 @@ function Profile() {
     const { user } = UserAuth()
 
     useEffect(() => {
-        if (user) {
-            onSnapshot(doc(db, "users", `${user.email}`), (doc) => {
+        if (user?.email) {
+            const unsubscribe = onSnapshot(doc(db, "users", user.email), (doc) => {
                 if (doc.data()) setMovies(doc.data().favMovies)
             })
+            return () => unsubscribe()
         }
     }, [user?.email])
 
