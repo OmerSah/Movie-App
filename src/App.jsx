@@ -19,7 +19,7 @@ function App() {
     <CheckConnection>
       <AuthContextProvider>
         <div className='app'>
-          <BrowserRouter>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Header />
             <Routes>
               <Route path='/' exact element={<Home />} />

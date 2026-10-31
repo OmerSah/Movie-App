@@ -11,7 +11,7 @@ function SimilarMovies({ similarMovie }) {
     const { id } = useParams()
 
     const handleClick = () => {
-        window.location.replace(`/movie/${similarMovie.id}`)
+        window.location.replace(`${import.meta.env.BASE_URL}movie/${similarMovie.id}`)
     }
 
     useEffect(() => {
